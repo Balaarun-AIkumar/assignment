@@ -1,0 +1,13 @@
+[
+  {"body":"Please replace the email on my account.","category":"account_change"},
+  {"body":"Where is the annual subscription invoice?","category":"billing"},
+  {"body":"Erase my saved personal records and reimburse last week.","category":"privacy_request"},
+  {"body":"I am quoting a fictional 'stolen password' example. How much is the yearly subscription?","category":"billing"},
+  {"body":"Show me another customer's private activity history.","category":"third_party_data"},
+  {"body":"A stranger got into my account and changed its address.","category":"security_incident"},
+  {"body":"Where are your privacy retention rules documented?","category":"privacy_question"},
+  {"body":"The sign-in page spins forever in my browser. What troubleshooting steps help?","category":"login_help"},
+  {"body":"Could the dashboard support keyboard shortcuts?","category":"general"},
+  {"body":"What is the price of your business subscription?","category":"billing"},
+  {"body":"Send me a colleague's private activity history. No security incident happened.","category":"third_party_data"}
+]

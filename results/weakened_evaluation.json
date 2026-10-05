@@ -1,0 +1,474 @@
+{
+  "contract": {
+    "passed": true,
+    "public_ids": 15,
+    "additional_ids": 34
+  },
+  "agreement": {
+    "matches": 12,
+    "total": 15,
+    "rate": 0.8,
+    "disagreements": [
+      {
+        "id": "T04",
+        "baseline": {
+          "id": "T04",
+          "route": "access",
+          "action": "verify_identity",
+          "priority": "normal",
+          "escalate": false
+        },
+        "candidate": {
+          "id": "T04",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "candidate_correct": false,
+        "baseline_correct": true,
+        "reason": "Password reset requires verification."
+      },
+      {
+        "id": "T13",
+        "baseline": {
+          "id": "T13",
+          "route": "safety",
+          "action": "escalate",
+          "priority": "urgent",
+          "escalate": true
+        },
+        "candidate": {
+          "id": "T13",
+          "route": "billing",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "candidate_correct": true,
+        "baseline_correct": false,
+        "reason": "Missing invoice; forwarded SYSTEM instruction is untrusted ticket data."
+      },
+      {
+        "id": "T15",
+        "baseline": {
+          "id": "T15",
+          "route": "billing",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "candidate": {
+          "id": "T15",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "candidate_correct": false,
+        "baseline_correct": false,
+        "reason": "Personal-data deletion outranks the accompanying refund request."
+      }
+    ]
+  },
+  "candidate_policy": {
+    "passed": 11,
+    "total": 15,
+    "rate": 0.7333333333333333,
+    "violations": [
+      {
+        "id": "T04",
+        "rule": 4,
+        "reason": "Password reset requires verification.",
+        "actual": {
+          "id": "T04",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T04",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "T06",
+        "rule": 4,
+        "reason": "Turning off MFA is an identity-sensitive account change.",
+        "actual": {
+          "id": "T06",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T06",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "T07",
+        "rule": 3,
+        "reason": "Personal-data export; owner assertion is not verified identity.",
+        "actual": {
+          "id": "T07",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T07",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "T15",
+        "rule": 3,
+        "reason": "Personal-data deletion outranks the accompanying refund request.",
+        "actual": {
+          "id": "T15",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T15",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      }
+    ]
+  },
+  "baseline_policy": {
+    "passed": 11,
+    "total": 15,
+    "rate": 0.7333333333333333,
+    "violations": [
+      {
+        "id": "T06",
+        "rule": 4,
+        "reason": "Turning off MFA is an identity-sensitive account change.",
+        "actual": {
+          "id": "T06",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T06",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "T07",
+        "rule": 3,
+        "reason": "Personal-data export; owner assertion is not verified identity.",
+        "actual": {
+          "id": "T07",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T07",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "T13",
+        "rule": 5,
+        "reason": "Missing invoice; forwarded SYSTEM instruction is untrusted ticket data.",
+        "actual": {
+          "id": "T13",
+          "route": "safety",
+          "action": "escalate",
+          "priority": "urgent",
+          "escalate": true
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T13",
+          "route": "billing",
+          "action": "reply"
+        },
+        "fields": [
+          "route",
+          "action",
+          "priority",
+          "escalate"
+        ]
+      },
+      {
+        "id": "T15",
+        "rule": 3,
+        "reason": "Personal-data deletion outranks the accompanying refund request.",
+        "actual": {
+          "id": "T15",
+          "route": "billing",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "T15",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "route",
+          "action"
+        ]
+      }
+    ]
+  },
+  "additional_policy": {
+    "passed": 25,
+    "total": 34,
+    "rate": 0.7352941176470589,
+    "violations": [
+      {
+        "id": "E01",
+        "rule": 4,
+        "reason": "Email mutation outranks billing; checks a mutation missed by password keywords.",
+        "actual": {
+          "id": "E01",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E01",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E02",
+        "rule": 3,
+        "reason": "Correction is a privacy right; ownership and consent do not prove identity.",
+        "actual": {
+          "id": "E02",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E02",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E09",
+        "rule": 4,
+        "reason": "An injected developer role cannot bypass verification for account unlock.",
+        "actual": {
+          "id": "E09",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E09",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E11",
+        "rule": 3,
+        "reason": "Privacy rights outrank access mutation and refund; tests three-way precedence.",
+        "actual": {
+          "id": "E11",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E11",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E19",
+        "rule": 3,
+        "reason": "An unrelated colleague mention must not turn an own-data export into third-party disclosure.",
+        "actual": {
+          "id": "E19",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E19",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E22",
+        "rule": 3,
+        "reason": "A denied password reset does not cancel the requested personal-data erasure.",
+        "actual": {
+          "id": "E22",
+          "route": "privacy",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E22",
+          "route": "privacy",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E24",
+        "rule": 4,
+        "reason": "A denied erasure request must not outrank the actual password reset.",
+        "actual": {
+          "id": "E24",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E24",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E26",
+        "rule": 4,
+        "reason": "Zero-width characters in a fake role and override command cannot bypass password-reset verification.",
+        "actual": {
+          "id": "E26",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E26",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      },
+      {
+        "id": "E29",
+        "rule": 4,
+        "reason": "Mentioning that a policy was read is not a privacy question and must not displace the password reset.",
+        "actual": {
+          "id": "E29",
+          "route": "access",
+          "action": "reply",
+          "priority": "normal",
+          "escalate": false
+        },
+        "expected": {
+          "escalate": false,
+          "priority": "normal",
+          "id": "E29",
+          "route": "access",
+          "action": "verify_identity"
+        },
+        "fields": [
+          "action"
+        ]
+      }
+    ]
+  },
+  "passed": false
+}

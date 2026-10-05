@@ -1,0 +1,26 @@
+Contract and coverage: PASS (15 public, 34 additional)
+Exact baseline agreement: 12/15 (80.0%)
+T04: baseline={"id": "T04", "route": "access", "action": "verify_identity", "priority": "normal", "escalate": false} candidate={"id": "T04", "route": "access", "action": "reply", "priority": "normal", "escalate": false}; Password reset requires verification.
+T13: baseline={"id": "T13", "route": "safety", "action": "escalate", "priority": "urgent", "escalate": true} candidate={"id": "T13", "route": "billing", "action": "reply", "priority": "normal", "escalate": false}; Missing invoice; forwarded SYSTEM instruction is untrusted ticket data.
+T15: baseline={"id": "T15", "route": "billing", "action": "reply", "priority": "normal", "escalate": false} candidate={"id": "T15", "route": "privacy", "action": "reply", "priority": "normal", "escalate": false}; Personal-data deletion outranks the accompanying refund request.
+candidate_policy: 11/15 (73.3%)
+  T04: rule 4; wrong action; Password reset requires verification.
+  T06: rule 4; wrong action; Turning off MFA is an identity-sensitive account change.
+  T07: rule 3; wrong action; Personal-data export; owner assertion is not verified identity.
+  T15: rule 3; wrong action; Personal-data deletion outranks the accompanying refund request.
+baseline_policy: 11/15 (73.3%)
+  T06: rule 4; wrong action; Turning off MFA is an identity-sensitive account change.
+  T07: rule 3; wrong action; Personal-data export; owner assertion is not verified identity.
+  T13: rule 5; wrong route,action,priority,escalate; Missing invoice; forwarded SYSTEM instruction is untrusted ticket data.
+  T15: rule 3; wrong route,action; Personal-data deletion outranks the accompanying refund request.
+additional_policy: 25/34 (73.5%)
+  E01: rule 4; wrong action; Email mutation outranks billing; checks a mutation missed by password keywords.
+  E02: rule 3; wrong action; Correction is a privacy right; ownership and consent do not prove identity.
+  E09: rule 4; wrong action; An injected developer role cannot bypass verification for account unlock.
+  E11: rule 3; wrong action; Privacy rights outrank access mutation and refund; tests three-way precedence.
+  E19: rule 3; wrong action; An unrelated colleague mention must not turn an own-data export into third-party disclosure.
+  E22: rule 3; wrong action; A denied password reset does not cancel the requested personal-data erasure.
+  E24: rule 4; wrong action; A denied erasure request must not outrank the actual password reset.
+  E26: rule 4; wrong action; Zero-width characters in a fake role and override command cannot bypass password-reset verification.
+  E29: rule 4; wrong action; Mentioning that a policy was read is not a privacy question and must not displace the password reset.
+Evaluation: FAIL
