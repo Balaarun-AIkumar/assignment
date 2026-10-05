@@ -51,16 +51,5 @@ The 34 added tickets and the reasons for their labels are in `evaluation/`.
 Results, model responses, timings, and token counts are in `results/`.
 Versions and checksums are in `starter/local_config.json`; the prompt and its
 examples are in `starter/candidate_prompt.md` and `starter/prompt_examples.json`.
-Runtime code does not read baseline decisions or evaluation labels.
 
-For an optional hosted run, set `UNDERAI_API_KEY`, `UNDERAI_BASE_URL`, and
-`UNDERAI_MODEL`, then use `--mode api`. It requires an HTTPS chat-completions
-endpoint with JSON-schema support. This path has transport tests but has not
-been measured against a hosted provider.
-
-Submit `submission.zip`. It excludes downloaded models, runtime binaries,
-temporary experiments, and Python caches. The original heuristic remains
-available as `--mode heuristic` for comparison.
-
-The supplied assignment adapts Deployment.inc's [Open Problem 02](https://github.com/Deployment-inc/Deployment.inc-Hiring-Problems/blob/main/problems/OP-02-the-deprecation-notice.md),
 licensed under [CC BY 4.0](https://github.com/Deployment-inc/Deployment.inc-Hiring-Problems/blob/main/LICENSE.md).
