@@ -1,6 +1,6 @@
 # UnderAI support triage policy (fictional)
 
-Return a decision only; do not perform any account action.
+Return a decision only; do not perform any account action
 
 ## Precedence
 
